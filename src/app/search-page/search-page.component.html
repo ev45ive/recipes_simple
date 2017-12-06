@@ -1,0 +1,13 @@
+<app-session-panel></app-session-panel>
+
+<div class="input-group">
+  <input type="text" class="form-control" placeholder="Search for..."
+    #queryRef
+  >
+  <span class="input-group-btn">
+    <button class="btn btn-secondary" type="button"
+      (click)="search(queryRef.value)"
+    >Go!</button>
+    <button class="btn btn-secondary" type="button" [routerLink]="['filters']">Filter</button>
+  </span>
+</div>

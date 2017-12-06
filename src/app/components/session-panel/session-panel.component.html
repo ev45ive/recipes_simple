@@ -1,0 +1,15 @@
+<div *ngIf="session">
+
+  <span>Witaj, {{ session.name }}</span>
+  |
+  <span (click)="logout()">Wyloguj sie </span>
+  
+
+</div>
+
+<div *ngIf="!session">
+  <span [routerLink]="['/user','signin']">Zaloguj sie</span>
+  |
+  <span [routerLink]="['/user','signup']">Zarejestruj sie</span>
+
+</div>
