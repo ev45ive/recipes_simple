@@ -1,3 +1,26 @@
 <p>
   recipe-page works!
 </p>
+<div *ngIf="recipe">
+
+  <h2>{{recipe.name}}</h2>
+
+  <div class="my-4 mx-auto w-25">
+    <button (click)="portions = portions - 1">-</button>
+    <input [(ngModel)]="portions" [value]="2">
+    <button (click)="portions = portions + 1">+</button>
+  </div>
+
+  <table class="table">
+    <tr *ngFor="let product of recipe.products">
+      <td>
+        {{product.amount * portions}} {{product.unit}}
+      </td>
+      <td>{{product.name}}</td>
+      <td>{{product.price * portions | currency:' '}} zl </td>
+    </tr>
+  </table>
+
+
+  <button class="btn btn-block" (click)="order(recipe, portions)">Zamow</button>
+</div>

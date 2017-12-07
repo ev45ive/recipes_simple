@@ -1,3 +1,25 @@
 <p>
   order-page works!
 </p>
+
+{{ currentOrder | json }}
+
+<div *ngIf="products">
+
+
+  <table class="table">
+    <tr *ngFor="let product of products">
+      <td>
+        <input type="checkbox" [(ngModel)]="product.buy" (ngModelChange)="updateOrder()">
+      </td>
+      <td>
+        {{product.amount}} {{product.unit}}
+      </td>
+      <td>{{product.name}}</td>
+      <td>{{product.price | currency:' '}} zl </td>
+    </tr>
+  </table>
+
+
+  <button class="btn btn-block" (click)="placeOrder()">Zamow</button>
+</div>

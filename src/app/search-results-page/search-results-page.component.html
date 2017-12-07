@@ -4,7 +4,8 @@
 <ul class="list-group"
   *ngFor="let recipe of recipes">
   <li class="list-group-item" [routerLink]=" '/recipe/details/' + recipe.objectId ">
-    {{recipe.name}}
-    {{ recipe | json }}
+    <h4>{{recipe.name}}</h4>
+     czas przygotowania: {{ recipe.cooking_time }}
+    <!--{{ recipe | json }}-->
   </li>
 </ul>
