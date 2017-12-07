@@ -11,7 +11,7 @@ export class SearchPageComponent implements OnInit {
   constructor(private router:Router) { }
 
   search(query){
-    this.router.navigate(['search','results'],{
+    this.router.navigate(['/search','results'],{
       queryParams: {
         query
       }

@@ -1,3 +1,91 @@
-<p>
-  filters-page works!
-</p>
+<app-session-panel></app-session-panel>
+<form #filtersForm="ngForm" (ngSubmit)="search(filtersForm.value)">
+
+  <div class="form-check" ngModelGroup="kuchnia">
+    <p>Rodzaj kuchni</p>
+    <label class="form-check-label">
+      <input class="form-check-input" type="checkbox" name="Amerykanska" ngModel>
+      Amerykanska
+    </label>
+    <label class="form-check-label">
+      <input class="form-check-input" type="checkbox" name="Polska" ngModel>
+      Polska
+    </label>
+    <label class="form-check-label">
+      <input class="form-check-input" type="checkbox" name="Wloska" ngModel>
+      Wloska
+    </label>
+  </div>
+
+  <div class="form-check" ngModelGroup="rodzaj_miesa">
+    <p>Rodzaj miesa</p>
+    <label class="form-check-label">
+      <input class="form-check-input" type="checkbox" name="Drob" ngModel>
+      Drob
+    </label>
+    <label class="form-check-label">
+      <input class="form-check-input" type="checkbox" name="Wieprzowina" ngModel>
+      Wieprzowina
+    </label>
+    <label class="form-check-label">
+      <input class="form-check-input" type="checkbox" name="Wolowina" ngModel>
+      Wolowina
+    </label>
+  </div>
+
+  <div class="form-check" ngModelGroup="rodzaj_dania">
+    <p>Rodzaj dania</p>
+    <label class="form-check-label">
+      <input class="form-check-input" type="checkbox" name="Sniadanie" ngModel>
+      Sniadanie
+    </label>
+    <label class="form-check-label">
+      <input class="form-check-input" type="checkbox" name="Obiad" ngModel>
+      Obiad
+    </label>
+    <label class="form-check-label">
+      <input class="form-check-input" type="checkbox" name="Kolacja" ngModel>
+      Kolacja
+    </label>
+  </div>
+
+  <div class="form-check" ngModelGroup="czas_przygotowania">
+    <p>Czas przygotowania</p>
+    <label class="form-check-label">
+      <input class="form-check-input" type="checkbox" name="10" ngModel>
+      10 min
+    </label>
+    <label class="form-check-label">
+      <input class="form-check-input" type="checkbox" name="30" ngModel [checked]="time > 30">
+      30 min
+    </label>
+    <label class="form-check-label">
+      <input class="form-check-input" type="checkbox" name="60" ngModel>
+      60 min
+    </label>
+  </div>
+
+  <div class="form-group">
+    <label for="">Czas</label>
+    <input type="range" min="10" max="120" ngModel (ngModelChange)="time = $event" name="time"> {{time}} min
+  </div>
+
+  <div class="form-check" ngModelGroup="cena_potrawy">
+    <p>Cena potrawy</p>
+    <label class="form-check-label">
+      <input class="form-check-input" type="checkbox" name="11" ngModel>
+      10 zl
+    </label>
+    <label class="form-check-label">
+      <input class="form-check-input" type="checkbox" name="51" ngModel>
+      15 - 50 zl
+    </label>
+    <label class="form-check-label">
+      <input class="form-check-input" type="checkbox" name="101" ngModel>
+      50 - 100 zl
+    </label>
+  </div>
+
+  <button class="btn btn-block">Szukaj</button>
+
+</form>

@@ -1,3 +1,10 @@
 <p>
   search-results-page works!
 </p>
+<ul class="list-group"
+  *ngFor="let recipe of recipes">
+  <li class="list-group-item" [routerLink]=" '/recipe/details/' + recipe.objectId ">
+    {{recipe.name}}
+    {{ recipe | json }}
+  </li>
+</ul>
